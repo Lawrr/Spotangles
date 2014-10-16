@@ -16,6 +16,7 @@ namespace Spotangles {
 		private ContextMenu trayMenu;
 		private int numChecked = 0;
 		private System.Timers.Timer timer;
+		private AlertForm alertForm = null;
 
 		public MainForm() {
 			InitializeComponent();
@@ -48,7 +49,9 @@ namespace Spotangles {
 		}
 
 		private void timer_Elapsed(object sender, EventArgs e) {
-			CheckClasses();
+			if (alertForm == null) {
+				this.Invoke(new Action(CheckClasses));
+			}
 		}
 
 		private void CheckClasses() {
@@ -56,8 +59,9 @@ namespace Spotangles {
 			numChecked++;
 			this.statusTXT.Text = "Status: Started [Checked " + this.numChecked + " times]";
 			if (availableClasses.Length > 0) {
-				AlertForm alertForm = new AlertForm(availableClasses);
+				alertForm = new AlertForm(availableClasses);
 				alertForm.ShowDialog();
+				alertForm = null;
 			}
 		}
 
