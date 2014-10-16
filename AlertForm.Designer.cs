@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlertForm));
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.classBox = new System.Windows.Forms.ListBox();
@@ -65,6 +66,7 @@
 			this.Controls.Add(this.label1);
 			this.Name = "AlertForm";
 			this.Text = "Spotangles Alert";
+			this.Load += new System.EventHandler(this.AlertForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
