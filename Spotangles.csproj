@@ -44,11 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassSelectorForm.cs">
+    <Compile Include="AlertForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClassSelectorForm.Designer.cs">
-      <DependentUpon>ClassSelectorForm.cs</DependentUpon>
+    <Compile Include="AlertForm.Designer.cs">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClassSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassSearchForm.Designer.cs">
+      <DependentUpon>ClassSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassUtilHandler.cs" />
     <Compile Include="MainForm.cs">
@@ -65,8 +71,11 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ClassSelectorForm.resx">
-      <DependentUpon>ClassSelectorForm.cs</DependentUpon>
+    <EmbeddedResource Include="AlertForm.resx">
+      <DependentUpon>AlertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassSearchForm.resx">
+      <DependentUpon>ClassSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
