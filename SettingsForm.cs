@@ -13,6 +13,8 @@ namespace Spotangles {
 		public SettingsForm() {
 			InitializeComponent();
 
+			this.CenterToScreen();
+
 			foreach (string trackedClass in Program.trackedClasses) {
 				this.trackBox.Items.Add(trackedClass);
 			}

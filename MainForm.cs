@@ -21,6 +21,8 @@ namespace Spotangles {
 		public MainForm() {
 			InitializeComponent();
 
+			this.CenterToScreen();
+
 			trayMenu = new ContextMenu();
 			trayMenu.MenuItems.Add("Exit", OnExit);
 
