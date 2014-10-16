@@ -13,6 +13,8 @@ namespace Spotangles {
 		public AlertForm(string[] availableClasses) {
 			InitializeComponent();
 
+			this.CenterToScreen();
+
 			foreach (string availableClass in availableClasses) {
 				this.classBox.Items.Add(availableClass);
 			}

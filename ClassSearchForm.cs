@@ -14,6 +14,8 @@ namespace Spotangles {
 			Area = Regex.Replace(course, @"\d+", "").ToUpper();
 
 			InitializeComponent();
+
+			this.CenterToScreen();
 			
 			// Get data
 			string[] source = ClassUtilHandler.LoadData(Area);
