@@ -17,5 +17,9 @@ namespace Spotangles {
 				this.classBox.Items.Add(availableClass);
 			}
 		}
+
+		private void AlertForm_Load(object sender, EventArgs e) {
+			this.Activate();
+		}
 	}
 }
