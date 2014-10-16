@@ -8,4 +8,5 @@ C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spota
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.pdb
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.MainForm.resources
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.SettingsForm.resources
-C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.ClassSelectorForm.resources
+C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.ClassSearchForm.resources
+C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.AlertForm.resources

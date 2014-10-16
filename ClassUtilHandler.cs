@@ -10,6 +10,12 @@ using System.Windows.Forms;
 
 namespace Spotangles {
 	static class ClassUtilHandler {
+
+		private static string dataPattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
+		private static string timePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
+		private static string commonPattern = @"^\w+\s+-\s+(.*?),\s+(.*?),\s+(.*?),.*";
+		private static string coursePattern = @"^(\w+)\s+-\s+.*";
+
 		public static string[] ParseClasses(string area, string course, string[] source) {
 			List<string> classes = new List<string>();
 
@@ -25,9 +31,7 @@ namespace Spotangles {
 					break;
 				} else if (foundCourse) {
 					if (line.IndexOf("</td> </tr>", StringComparison.OrdinalIgnoreCase) < 0) {
-						Console.WriteLine("No: " + line);
-						string linePattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
-						/* $1 = Activity
+						   /* $1 = Activity
 							* $2 = Section
 							* $3 = Class Number
 							* $4 = Type
@@ -35,14 +39,11 @@ namespace Spotangles {
 							* $6 = Current spots
 							* $7 = Total spots
 							*/
-						classString = Regex.Replace(line, linePattern, "$1, $2, $5, $6/$7", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+						classString = Regex.Replace(line, dataPattern, "$1, $2, $3, $5, $6/$7", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
 					} else {
-						Console.WriteLine("On: " + line);
 						string[] times = line.Split(';');
 						string timeString = "";
-						string timePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
 						foreach (string time in times) {
-							Console.WriteLine("Time: " + time);
 							if (timeString.Length > 0) {
 								timeString += ", ";
 							}
@@ -73,6 +74,63 @@ namespace Spotangles {
 				MessageBox.Show(ex.Message, null, MessageBoxButtons.OK);
 			}
 			return new string[0];
+		}
+
+		public static string[] GetAvailableClasses(List<string> trackedClasses) {
+			List<string> availableClasses = new List<string>();
+			foreach (string trackedClass in trackedClasses) {
+				string commonMatch = Regex.Replace(trackedClass, commonPattern, "$1 $2 $3", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+				string course = Regex.Replace(trackedClass, coursePattern, "$1", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+				string area = Regex.Replace(course, @"\d+", "").ToUpper();
+				string[] source = LoadData(area);
+				string[] classes = ParseClasses(area, course, source);
+				string updatedClass = FindClass(commonMatch, classes);
+				if (updatedClass != "") {
+					// Search for number of spots
+					string linePattern = @"(\S+?),\s+(\S+?),\s+(\S+?),\s+(\S+?),\s+(\d+)\s*/\s*(\d+).*";
+				       /* $1 = Activity
+						* $2 = Section
+						* $3 = Class Number
+						* $4 = Status
+						* $5 = Current spots
+						* $6 = Total spots
+						*/
+					string spots = Regex.Replace(updatedClass, linePattern, "$5 $6", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+					int currentSpots = 0;
+					int totalSpots = 0;
+					if (Int32.TryParse(spots.Split(' ')[0], out currentSpots) && Int32.TryParse(spots.Split(' ')[1], out totalSpots)) {
+						if (currentSpots < totalSpots) {
+							availableClasses.Add(updatedClass);
+						}
+					}
+				}
+			}
+
+			return availableClasses.ToArray();
+		}
+
+		public static string FindClass(string commonMatch, string[] classes) {
+			// Common match: LEC 1UGA 1234
+			//         Activity Section ClassNumber
+			string classString = "";
+
+			foreach (string currClass in classes) {
+				   /* $1 = Activity
+					* $2 = Section
+					* $3 = Class Number
+					* $4 = Status
+					* $5 = Current spots
+					* $6 = Total spots
+					*/
+				string linePattern = @"(\S+?),\s+(\S+?),\s+(\S+?),\s+(\S+?),\s+(\d+)\s*/\s*(\d+).*";
+				string currentCommonMatch = Regex.Replace(currClass, linePattern, "$1 $2 $3", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+				if (commonMatch.Equals(currentCommonMatch)) {
+					classString = currClass;
+					break;
+				}
+			}
+
+			return classString;
 		}
 	}
 }

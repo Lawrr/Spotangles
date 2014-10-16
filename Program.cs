@@ -9,6 +9,10 @@ namespace Spotangles {
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
+		/// 
+
+		public static List<string> trackedClasses = new List<string>();
+
 		[STAThread]
 		static void Main() {
 			Application.EnableVisualStyles();

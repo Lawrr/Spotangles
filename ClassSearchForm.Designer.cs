@@ -1,5 +1,5 @@
 ﻿namespace Spotangles {
-	partial class ClassSelectorForm {
+	partial class ClassSearchForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -39,6 +39,7 @@
 			this.classBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
 			this.classBox.Size = new System.Drawing.Size(530, 199);
 			this.classBox.TabIndex = 0;
+			this.classBox.SelectedIndexChanged += new System.EventHandler(this.classBox_SelectedIndexChanged);
 			// 
 			// classTXT
 			// 
@@ -58,6 +59,7 @@
 			this.addBTN.TabIndex = 2;
 			this.addBTN.Text = "Add Class";
 			this.addBTN.UseVisualStyleBackColor = true;
+			this.addBTN.Click += new System.EventHandler(this.addBTN_Click);
 			// 
 			// label2
 			// 
@@ -68,7 +70,7 @@
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Tent = Stop Further Enrolment, Tentative, Closed or Cancelled";
 			// 
-			// ClassSelectorForm
+			// ClassSearchForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -77,8 +79,8 @@
 			this.Controls.Add(this.addBTN);
 			this.Controls.Add(this.classTXT);
 			this.Controls.Add(this.classBox);
-			this.Name = "ClassSelectorForm";
-			this.Text = "ClassSelectorForm";
+			this.Name = "ClassSearchForm";
+			this.Text = "Class Search";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
