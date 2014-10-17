@@ -17,6 +17,7 @@ namespace Spotangles {
 		private int numChecked = 0;
 		private System.Timers.Timer timer;
 		private AlertForm alertForm = null;
+		private string updatedTime = "";
 
 		public MainForm() {
 			InitializeComponent();
@@ -58,6 +59,8 @@ namespace Spotangles {
 
 		private void CheckClasses() {
 			string[] availableClasses = ClassUtilHandler.GetAvailableClasses(Program.trackedClasses);
+			updatedTime = ClassUtilHandler.GetUpdatedTime();
+			this.updatedTXT.Text = "Data is correct as at: " + updatedTime;
 			numChecked++;
 			this.statusTXT.Text = "Status: Started [Checked " + this.numChecked + " times]";
 			if (availableClasses.Length > 0) {
