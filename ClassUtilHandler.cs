@@ -59,6 +59,33 @@ namespace Spotangles {
 			return classes.ToArray();
 		}
 
+		public static string GetUpdatedTime() {
+			WebClient webClient = new WebClient();
+			webClient.Proxy = null;
+			string url = "https://my.unsw.edu.au/classutil/";
+
+			string time = "";
+			string[] lines = new string[0];
+			try {
+				Stream data = webClient.OpenRead(url);
+				StreamReader read = new StreamReader(data);
+				string content = read.ReadToEnd();
+				lines = content.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+			} catch (WebException ex) {
+				MessageBox.Show(ex.Message, null, MessageBoxButtons.OK);
+			}
+			string updatedLine = @"Data\s+is\s+correct\s+as\s+at\s+<b>(.*)</b></p>";
+			if (lines.Length > 0) {
+				foreach (string line in lines) {
+					if (Regex.IsMatch(line, updatedLine, RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase)) {
+						time = Regex.Replace(line, updatedLine, "$1", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+						break;
+					}
+				}
+			}
+			return time;
+		}
+
 		public static string[] LoadData(string area) {
 			WebClient webClient = new WebClient();
 			webClient.Proxy = null;
