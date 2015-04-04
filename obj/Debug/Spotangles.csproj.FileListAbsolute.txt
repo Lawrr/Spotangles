@@ -1,6 +1,7 @@
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\bin\Debug\Spotangles.exe.config
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\bin\Debug\Spotangles.exe
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\bin\Debug\Spotangles.pdb
+C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.csprojResolveAssemblyReference.cache
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.AlertForm.resources
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.ClassSearchForm.resources
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Debug\Spotangles.MainForm.resources
