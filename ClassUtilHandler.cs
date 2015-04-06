@@ -62,7 +62,7 @@ namespace Spotangles {
 		public static string GetUpdatedTime() {
 			WebClient webClient = new WebClient();
 			webClient.Proxy = null;
-			string url = "https://my.unsw.edu.au/classutil/";
+            string url = "http://classutil.unsw.edu.au/";
 
 			string time = "";
 			string[] lines = new string[0];
@@ -89,7 +89,7 @@ namespace Spotangles {
 		public static string[] LoadData(string area) {
 			WebClient webClient = new WebClient();
 			webClient.Proxy = null;
-			string url = String.Format("https://my.unsw.edu.au/classutil/{0}_S1.html", area);
+            string url = String.Format("http://classutil.unsw.edu.au/{0}_S1.html", area);
 
 			try {
 				Stream data = webClient.OpenRead(url);
