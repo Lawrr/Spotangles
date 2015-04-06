@@ -2,5 +2,4 @@ Spotangles
 ==========
 
 Checks for available spots in class enrolments using ClassUtil (UNSW)
-
-#Possibly deprecated
+Code is currently for semester 1 only.
