@@ -25,26 +25,26 @@ namespace Spotangles {
 
 		private void DisplayClasses(string[] classes) {
 			// Remove 'Loading classes...' item
-			this.classBox.Items.RemoveAt(0);
+			this.ClassBox.Items.RemoveAt(0);
 			// Enable selection
-			this.classBox.SelectionMode = SelectionMode.One;
+			this.ClassBox.SelectionMode = SelectionMode.One;
 			// Add classes
 			foreach (string line in classes) {
-				this.classBox.Items.Add(line);
+				this.ClassBox.Items.Add(line);
 			}
 		}
 
-		private void addBTN_Click(object sender, System.EventArgs e) {
-			if (this.classBox.SelectedItems.Count == 1) {
-				Parent.AddClass(this.Course + " - " + this.classBox.SelectedItem.ToString());
-				Program.trackedClasses.Add(this.Course + " - " + this.classBox.SelectedItem.ToString());
+		private void AddButton_Click(object sender, System.EventArgs e) {
+			if (this.ClassBox.SelectedItems.Count == 1) {
+				Parent.AddClass(this.Course + " - " + this.ClassBox.SelectedItem.ToString());
+				Program.TrackedClasses.Add(this.Course + " - " + this.ClassBox.SelectedItem.ToString());
 				this.Close();
 			}
 		}
 
-		private void classBox_SelectedIndexChanged(object sender, System.EventArgs e) {
+		private void ClassBox_SelectedIndexChanged(object sender, System.EventArgs e) {
 			// Enable button
-			this.addBTN.Enabled = true;
+			this.AddButton.Enabled = true;
 		}
 	}
 }

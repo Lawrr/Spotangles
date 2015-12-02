@@ -3,13 +3,14 @@ using System.Windows.Forms;
 
 namespace Spotangles {
     public partial class AlertForm : Form {
+
 		public AlertForm(string[] availableClasses) {
 			InitializeComponent();
 
 			this.CenterToScreen();
 
 			foreach (string availableClass in availableClasses) {
-				this.classBox.Items.Add(availableClass);
+				this.ClassBox.Items.Add(availableClass);
 			}
 		}
 
