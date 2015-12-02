@@ -64,40 +64,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlertForm.cs">
+    <Compile Include="Forms\AlertForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlertForm.Designer.cs">
+    <Compile Include="Forms\AlertForm.Designer.cs">
       <DependentUpon>AlertForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClassSearchForm.cs">
+    <Compile Include="Forms\ClassSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClassSearchForm.Designer.cs">
+    <Compile Include="Forms\ClassSearchForm.Designer.cs">
       <DependentUpon>ClassSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassUtilHandler.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SettingsForm.cs">
+    <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingsForm.Designer.cs">
+    <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AlertForm.resx">
+    <EmbeddedResource Include="Forms\AlertForm.resx">
       <DependentUpon>AlertForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClassSearchForm.resx">
+    <EmbeddedResource Include="Forms\ClassSearchForm.resx">
       <DependentUpon>ClassSearchForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -110,7 +110,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SettingsForm.resx">
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

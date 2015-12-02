@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Spotangles {
-	static class ClassUtilHandler {
+    static class ClassUtilHandler {
 
 		private static string dataPattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
 		private static string timePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
