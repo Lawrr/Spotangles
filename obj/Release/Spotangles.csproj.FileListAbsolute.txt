@@ -10,3 +10,15 @@ C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spota
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Release\Spotangles.Properties.Resources.resources
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Release\Spotangles.SettingsForm.resources
 C:\Users\Lawrence\Documents\Code\Visual Studio 2012\Projects\C#\Spotangles\Spotangles\obj\Release\Spotangles.csproj.GenerateResource.Cache
+D:\Folders\Code\C#\Spotangles\Spotangles\bin\Release\Spotangles.exe.config
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.exe
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.pdb
+D:\Folders\Code\C#\Spotangles\Spotangles\bin\Release\Spotangles.exe
+D:\Folders\Code\C#\Spotangles\Spotangles\bin\Release\Spotangles.pdb
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.csprojResolveAssemblyReference.cache
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.AlertForm.resources
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.ClassSearchForm.resources
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.MainForm.resources
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.Properties.Resources.resources
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.SettingsForm.resources
+D:\Folders\Code\C#\Spotangles\Spotangles\obj\Release\Spotangles.csproj.GenerateResource.Cache
