@@ -16,7 +16,7 @@ namespace Spotangles {
 
 			this.CenterToScreen();
 
-			timer = new System.Timers.Timer(1000 *  5);
+			timer = new System.Timers.Timer(1000 * 60 * 5);
 			timer.Elapsed += new ElapsedEventHandler(OnClassCheck);
 
 			this.StatusLabel.Text = "Status: Idle";
