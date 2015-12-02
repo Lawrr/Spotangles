@@ -7,39 +7,40 @@ namespace Spotangles {
 		public SettingsForm() {
 			InitializeComponent();
 
-			this.CenterToScreen();
+			CenterToScreen();
 
 			foreach (string trackedClass in Program.TrackedClasses) {
-				this.trackBox.Items.Add(trackedClass);
+				TrackBox.Items.Add(trackedClass);
 			}
 
-			this.removeBTN.Enabled = false;
+			RemoveButton.Enabled = false;
 		}
 
-		private void closeBTN_Click(object sender, EventArgs e) {
-			this.Close();
+		private void CloseButton_Click(object sender, EventArgs e) {
+			Close();
 		}
 
-		private void searchBTN_Click(object sender, EventArgs e) {
-			ClassSearchForm classCheckerForm = new ClassSearchForm(this, this.courseInputBox.Text);
+		private void SearchButton_Click(object sender, EventArgs e) {
+			ClassSearchForm classCheckerForm = new ClassSearchForm(this, this.CourseInputBox.Text);
 			classCheckerForm.ShowDialog();
 		}
 
 		public void AddClass(string classString) {
-			this.trackBox.Items.Add(classString);
+			TrackBox.Items.Add(classString);
 		}
 
-		private void trackBox_SelectedIndexChanged(object sender, System.EventArgs e) {
+		private void TrackBox_SelectedIndexChanged(object sender, System.EventArgs e) {
 			// Enable button
-			this.removeBTN.Enabled = true;
+			RemoveButton.Enabled = true;
 		}
 
-		private void removeBTN_Click(object sender, EventArgs e) {
-			if (this.trackBox.SelectedItems.Count == 1) {
-				Program.TrackedClasses.RemoveAt(this.trackBox.SelectedIndex);
-				this.trackBox.Items.RemoveAt(this.trackBox.SelectedIndex);
+		private void RemoveButton_Click(object sender, EventArgs e) {
+			if (this.TrackBox.SelectedItems.Count == 1) {
+				Program.TrackedClasses.RemoveAt(TrackBox.SelectedIndex);
+				TrackBox.Items.RemoveAt(TrackBox.SelectedIndex);
 			}
-			this.removeBTN.Enabled = false;
+			RemoveButton.Enabled = false;
 		}
+
 	}
 }

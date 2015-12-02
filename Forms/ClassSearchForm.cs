@@ -15,7 +15,7 @@ namespace Spotangles {
 
 			InitializeComponent();
 
-			this.CenterToScreen();
+			CenterToScreen();
 			
 			// Get data
 			string[] source = ClassUtilHandler.LoadData(Area);
@@ -25,26 +25,26 @@ namespace Spotangles {
 
 		private void DisplayClasses(string[] classes) {
 			// Remove 'Loading classes...' item
-			this.ClassBox.Items.RemoveAt(0);
+			ClassBox.Items.RemoveAt(0);
 			// Enable selection
-			this.ClassBox.SelectionMode = SelectionMode.One;
+			ClassBox.SelectionMode = SelectionMode.One;
 			// Add classes
 			foreach (string line in classes) {
-				this.ClassBox.Items.Add(line);
+				ClassBox.Items.Add(line);
 			}
 		}
 
 		private void AddButton_Click(object sender, System.EventArgs e) {
-			if (this.ClassBox.SelectedItems.Count == 1) {
-				Parent.AddClass(this.Course + " - " + this.ClassBox.SelectedItem.ToString());
-				Program.TrackedClasses.Add(this.Course + " - " + this.ClassBox.SelectedItem.ToString());
-				this.Close();
+			if (ClassBox.SelectedItems.Count == 1) {
+				Parent.AddClass(Course + " - " + ClassBox.SelectedItem.ToString());
+				Program.TrackedClasses.Add(Course + " - " + ClassBox.SelectedItem.ToString());
+				Close();
 			}
 		}
 
 		private void ClassBox_SelectedIndexChanged(object sender, System.EventArgs e) {
 			// Enable button
-			this.AddButton.Enabled = true;
+			AddButton.Enabled = true;
 		}
 	}
 }
