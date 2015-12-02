@@ -22,7 +22,7 @@ namespace Spotangles {
 			trayMenu.MenuItems.Add("Exit", OnExit);
 
 			trayIcon = new NotifyIcon();
-			trayIcon.Text = "Utilities";
+			trayIcon.Text = Program.ProgramName;
             trayIcon.Icon = new Icon(Icon, 40, 40);
 
 			trayIcon.ContextMenu = trayMenu;

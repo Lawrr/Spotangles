@@ -5,6 +5,7 @@ using System.Windows.Forms;
 namespace Spotangles {
     static class Program {
 
+        public static String ProgramName { get; private set; } = "Spotangles";
 		public static List<string> trackedClasses = new List<string>();
 
 		/// <summary>
