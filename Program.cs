@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Spotangles {
-	static class Program {
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		/// 
+    static class Program {
 
 		public static List<string> trackedClasses = new List<string>();
 
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
 		[STAThread]
 		static void Main() {
 			Application.EnableVisualStyles();
