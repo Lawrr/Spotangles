@@ -8,10 +8,10 @@ using System.Windows.Forms;
 namespace Spotangles {
     static class ClassUtilHandler {
 
-		private static string dataPattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
-		private static string timePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
-		private static string commonPattern = @"^\w+\s+-\s+(.*?),\s+(.*?),\s+(.*?),.*";
-		private static string coursePattern = @"^(\w+)\s+-\s+.*";
+		private static string DataPattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
+		private static string TimePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
+		private static string CommonPattern = @"^\w+\s+-\s+(.*?),\s+(.*?),\s+(.*?),.*";
+		private static string CoursePattern = @"^(\w+)\s+-\s+.*";
 
 		public static string[] ParseClasses(string area, string course, string[] source) {
 			List<string> classes = new List<string>();
@@ -36,7 +36,7 @@ namespace Spotangles {
 							* $6 = Current spots
 							* $7 = Total spots
 							*/
-						classString = Regex.Replace(line, dataPattern, "$1, $2, $3, $5, $6/$7", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+						classString = Regex.Replace(line, DataPattern, "$1, $2, $3, $5, $6/$7", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
 					} else {
 						string[] times = line.Split(';');
 						string timeString = "";
@@ -44,9 +44,9 @@ namespace Spotangles {
 							if (timeString.Length > 0) {
 								timeString += ", ";
 							}
-							timeString += Regex.Replace(line, timePattern, "$1", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+							timeString += Regex.Replace(line, TimePattern, "$1", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
 						}
-						if (Regex.IsMatch(line, timePattern, RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase)) {
+						if (Regex.IsMatch(line, TimePattern, RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase)) {
 							classes.Add(classString + ", [" + timeString + "]");
 						}
 					}
@@ -103,8 +103,8 @@ namespace Spotangles {
 		public static string[] GetAvailableClasses(List<string> trackedClasses) {
 			List<string> availableClasses = new List<string>();
 			foreach (string trackedClass in trackedClasses) {
-				string commonMatch = Regex.Replace(trackedClass, commonPattern, "$1 $2 $3", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
-				string course = Regex.Replace(trackedClass, coursePattern, "$1", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+				string commonMatch = Regex.Replace(trackedClass, CommonPattern, "$1 $2 $3", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+				string course = Regex.Replace(trackedClass, CoursePattern, "$1", RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
 				string area = Regex.Replace(course, @"\d+", "").ToUpper();
 				string[] source = LoadData(area);
 				string[] classes = ParseClasses(area, course, source);

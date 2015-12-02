@@ -3,12 +3,13 @@ using System.Windows.Forms;
 
 namespace Spotangles {
     public partial class SettingsForm : Form {
+
 		public SettingsForm() {
 			InitializeComponent();
 
 			this.CenterToScreen();
 
-			foreach (string trackedClass in Program.trackedClasses) {
+			foreach (string trackedClass in Program.TrackedClasses) {
 				this.trackBox.Items.Add(trackedClass);
 			}
 
@@ -35,7 +36,7 @@ namespace Spotangles {
 
 		private void removeBTN_Click(object sender, EventArgs e) {
 			if (this.trackBox.SelectedItems.Count == 1) {
-				Program.trackedClasses.RemoveAt(this.trackBox.SelectedIndex);
+				Program.TrackedClasses.RemoveAt(this.trackBox.SelectedIndex);
 				this.trackBox.Items.RemoveAt(this.trackBox.SelectedIndex);
 			}
 			this.removeBTN.Enabled = false;

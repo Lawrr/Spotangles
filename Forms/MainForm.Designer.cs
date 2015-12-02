@@ -23,85 +23,86 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.settingsBTN = new System.Windows.Forms.Button();
-			this.startBTN = new System.Windows.Forms.Button();
-			this.stopBTN = new System.Windows.Forms.Button();
-			this.statusTXT = new System.Windows.Forms.Label();
-			this.updatedTXT = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// settingsBTN
-			// 
-			this.settingsBTN.Location = new System.Drawing.Point(230, 56);
-			this.settingsBTN.Name = "settingsBTN";
-			this.settingsBTN.Size = new System.Drawing.Size(75, 23);
-			this.settingsBTN.TabIndex = 0;
-			this.settingsBTN.Text = "Settings";
-			this.settingsBTN.UseVisualStyleBackColor = true;
-			this.settingsBTN.Click += new System.EventHandler(this.settingsBTN_Click);
-			// 
-			// startBTN
-			// 
-			this.startBTN.Location = new System.Drawing.Point(13, 56);
-			this.startBTN.Name = "startBTN";
-			this.startBTN.Size = new System.Drawing.Size(75, 23);
-			this.startBTN.TabIndex = 1;
-			this.startBTN.Text = "Start";
-			this.startBTN.UseVisualStyleBackColor = true;
-			this.startBTN.Click += new System.EventHandler(this.startBTN_Click);
-			// 
-			// stopBTN
-			// 
-			this.stopBTN.Location = new System.Drawing.Point(94, 56);
-			this.stopBTN.Name = "stopBTN";
-			this.stopBTN.Size = new System.Drawing.Size(75, 23);
-			this.stopBTN.TabIndex = 2;
-			this.stopBTN.Text = "Stop";
-			this.stopBTN.UseVisualStyleBackColor = true;
-			this.stopBTN.Click += new System.EventHandler(this.stopBTN_Click);
-			// 
-			// statusTXT
-			// 
-			this.statusTXT.AutoSize = true;
-			this.statusTXT.Location = new System.Drawing.Point(13, 12);
-			this.statusTXT.Name = "statusTXT";
-			this.statusTXT.Size = new System.Drawing.Size(40, 13);
-			this.statusTXT.TabIndex = 3;
-			this.statusTXT.Text = "Status:";
-			// 
-			// updatedTXT
-			// 
-			this.updatedTXT.AutoSize = true;
-			this.updatedTXT.Location = new System.Drawing.Point(13, 32);
-			this.updatedTXT.Name = "updatedTXT";
-			this.updatedTXT.Size = new System.Drawing.Size(108, 13);
-			this.updatedTXT.TabIndex = 4;
-			this.updatedTXT.Text = "Data is correct as at: ";
-			// 
-			// MainForm
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(317, 91);
-			this.Controls.Add(this.updatedTXT);
-			this.Controls.Add(this.statusTXT);
-			this.Controls.Add(this.stopBTN);
-			this.Controls.Add(this.startBTN);
-			this.Controls.Add(this.settingsBTN);
-			this.Name = "MainForm";
-			this.Text = "Spotangles";
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.SettingsButton = new System.Windows.Forms.Button();
+            this.StartButton = new System.Windows.Forms.Button();
+            this.StopButton = new System.Windows.Forms.Button();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.UpdateLabel = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Location = new System.Drawing.Point(230, 56);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.SettingsButton.TabIndex = 0;
+            this.SettingsButton.Text = "Settings";
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
+            // StartButton
+            // 
+            this.StartButton.Location = new System.Drawing.Point(13, 56);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(75, 23);
+            this.StartButton.TabIndex = 1;
+            this.StartButton.Text = "Start";
+            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            // 
+            // StopButton
+            // 
+            this.StopButton.Location = new System.Drawing.Point(94, 56);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(75, 23);
+            this.StopButton.TabIndex = 2;
+            this.StopButton.Text = "Stop";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Location = new System.Drawing.Point(13, 12);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(40, 13);
+            this.StatusLabel.TabIndex = 3;
+            this.StatusLabel.Text = "Status:";
+            // 
+            // UpdateLabel
+            // 
+            this.UpdateLabel.AutoSize = true;
+            this.UpdateLabel.Location = new System.Drawing.Point(13, 32);
+            this.UpdateLabel.Name = "UpdateLabel";
+            this.UpdateLabel.Size = new System.Drawing.Size(108, 13);
+            this.UpdateLabel.TabIndex = 4;
+            this.UpdateLabel.Text = "Data is correct as at: ";
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(317, 91);
+            this.Controls.Add(this.UpdateLabel);
+            this.Controls.Add(this.StatusLabel);
+            this.Controls.Add(this.StopButton);
+            this.Controls.Add(this.StartButton);
+            this.Controls.Add(this.SettingsButton);
+            this.Name = "MainForm";
+            this.Text = "Spotangles";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Button settingsBTN;
-		private System.Windows.Forms.Button startBTN;
-		private System.Windows.Forms.Button stopBTN;
-		private System.Windows.Forms.Label statusTXT;
-		private System.Windows.Forms.Label updatedTXT;
+		private System.Windows.Forms.Button SettingsButton;
+		private System.Windows.Forms.Button StartButton;
+		private System.Windows.Forms.Button StopButton;
+		private System.Windows.Forms.Label StatusLabel;
+		private System.Windows.Forms.Label UpdateLabel;
 	}
 }
 
