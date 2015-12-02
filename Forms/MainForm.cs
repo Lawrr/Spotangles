@@ -23,7 +23,7 @@ namespace Spotangles {
 
 			trayIcon = new NotifyIcon();
 			trayIcon.Text = "Utilities";
-			trayIcon.Icon = new Icon(".../.../Resources/Icon.ico");
+            trayIcon.Icon = new Icon(Icon, 40, 40);
 
 			trayIcon.ContextMenu = trayMenu;
 			trayIcon.Visible = true;
