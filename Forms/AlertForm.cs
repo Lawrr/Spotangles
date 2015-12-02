@@ -7,15 +7,15 @@ namespace Spotangles {
 		public AlertForm(string[] availableClasses) {
 			InitializeComponent();
 
-			this.CenterToScreen();
+			CenterToScreen();
 
 			foreach (string availableClass in availableClasses) {
-				this.ClassBox.Items.Add(availableClass);
+				ClassBox.Items.Add(availableClass);
 			}
 		}
 
 		private void AlertForm_Load(object sender, EventArgs e) {
-			this.Activate();
+			Activate();
 		}
 	}
 }

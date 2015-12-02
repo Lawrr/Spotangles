@@ -9,18 +9,20 @@ namespace Spotangles {
         private ContextMenu ContextMenu;
 
         public Tray() {
+            // Context menu
             ContextMenu = new ContextMenu();
             ContextMenu.MenuItems.Add("Open " + Program.ProgramName, TrayIcon_OpenClick);
             ContextMenu.MenuItems.Add("-");
             ContextMenu.MenuItems.Add("Exit", TrayIcon_ExitClick);
 
+            // Tray icon
             TrayIcon = new NotifyIcon();
             TrayIcon.Text = Program.ProgramName;
             TrayIcon.Icon = new Icon(Program.MainForm.Icon, 40, 40);
-
             TrayIcon.ContextMenu = ContextMenu;
             TrayIcon.Visible = true;
 
+            // Event handlers
             TrayIcon.DoubleClick += new EventHandler(TrayIcon_DoubleClick);
         }
 
