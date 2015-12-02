@@ -19,7 +19,9 @@ namespace Spotangles {
 			this.CenterToScreen();
 
 			trayMenu = new ContextMenu();
-			trayMenu.MenuItems.Add("Exit", OnExit);
+            trayMenu.MenuItems.Add("Open " + Program.ProgramName, TrayIcon_OnOpenClicked);
+            trayMenu.MenuItems.Add("-");
+			trayMenu.MenuItems.Add("Exit", TrayIcon_OnExitClicked);
 
 			trayIcon = new NotifyIcon();
 			trayIcon.Text = Program.ProgramName;
@@ -41,7 +43,11 @@ namespace Spotangles {
 			Visible = !Visible;
 		}
 
-		private void OnExit(object sender, EventArgs e) {
+        private void TrayIcon_OnOpenClicked(object sender, EventArgs e) {
+            Visible = !Visible;
+        }
+
+		private void TrayIcon_OnExitClicked(object sender, EventArgs e) {
 			Application.Exit();
 		}
 
