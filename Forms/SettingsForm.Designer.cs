@@ -30,6 +30,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
             this.CourseInputBox = new System.Windows.Forms.TextBox();
+            this.SemesterComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -93,14 +94,28 @@
             // 
             this.CourseInputBox.Location = new System.Drawing.Point(12, 22);
             this.CourseInputBox.Name = "CourseInputBox";
-            this.CourseInputBox.Size = new System.Drawing.Size(304, 20);
+            this.CourseInputBox.Size = new System.Drawing.Size(212, 20);
             this.CourseInputBox.TabIndex = 0;
+            // 
+            // SemesterComboBox
+            // 
+            this.SemesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SemesterComboBox.FormattingEnabled = true;
+            this.SemesterComboBox.Items.AddRange(new object[] {
+            "Semester 1",
+            "Semester 2",
+            "Summer"});
+            this.SemesterComboBox.Location = new System.Drawing.Point(230, 22);
+            this.SemesterComboBox.Name = "SemesterComboBox";
+            this.SemesterComboBox.Size = new System.Drawing.Size(86, 21);
+            this.SemesterComboBox.TabIndex = 10;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(409, 267);
+            this.Controls.Add(this.SemesterComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.RemoveButton);
@@ -124,5 +139,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button SearchButton;
 		private System.Windows.Forms.TextBox CourseInputBox;
-	}
+        private System.Windows.Forms.ComboBox SemesterComboBox;
+    }
 }
