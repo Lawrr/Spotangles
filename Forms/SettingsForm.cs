@@ -9,10 +9,15 @@ namespace Spotangles {
 
 			CenterToScreen();
 
+            // Set default semester
+            SemesterComboBox.SelectedIndex = 0;
+
+            // Add tracked classes
 			foreach (string trackedClass in Program.TrackedClasses) {
 				TrackBox.Items.Add(trackedClass);
 			}
 
+            // Disable remove button
 			RemoveButton.Enabled = false;
 		}
 
@@ -21,7 +26,7 @@ namespace Spotangles {
 		}
 
 		private void SearchButton_Click(object sender, EventArgs e) {
-			ClassSearchForm classCheckerForm = new ClassSearchForm(this, this.CourseInputBox.Text);
+			ClassSearchForm classCheckerForm = new ClassSearchForm(this, CourseInputBox.Text);
 			classCheckerForm.ShowDialog();
 		}
 
@@ -35,7 +40,7 @@ namespace Spotangles {
 		}
 
 		private void RemoveButton_Click(object sender, EventArgs e) {
-			if (this.TrackBox.SelectedItems.Count == 1) {
+			if (TrackBox.SelectedItems.Count == 1) {
 				Program.TrackedClasses.RemoveAt(TrackBox.SelectedIndex);
 				TrackBox.Items.RemoveAt(TrackBox.SelectedIndex);
 			}
