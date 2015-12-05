@@ -19,7 +19,7 @@ namespace Spotangles {
         private static string DataPattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
 		private static string TimePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
 
-		public static List<ClassDetails> ParseClasses(string area, string course, string[] source) {
+		public static List<ClassDetails> ParseClasses(string area, string course, Semester semester, string[] source) {
 			List<ClassDetails> classes = new List<ClassDetails>();
 
 			bool foundCourse = false;
@@ -39,6 +39,7 @@ namespace Spotangles {
                         if (lineMatch.Success) {
                             try {
                                 currClass = new ClassDetails(course,
+                                                             semester,
                                                              lineMatch.Groups[1].Value,
                                                              lineMatch.Groups[2].Value,
                                                              int.Parse(lineMatch.Groups[3].Value),
@@ -96,10 +97,10 @@ namespace Spotangles {
 			return time;
 		}
 
-		public static string[] LoadData(string area) {
+		public static string[] LoadData(string area, Semester semester) {
 			WebClient webClient = new WebClient();
 			webClient.Proxy = null;
-            string url = String.Format("http://classutil.unsw.edu.au/{0}_S1.html", area);
+            string url = String.Format("http://classutil.unsw.edu.au/{0}_{1}.html", area, semester.GetId());
 
 			try {
 				Stream data = webClient.OpenRead(url);
@@ -117,8 +118,8 @@ namespace Spotangles {
 			List<ClassDetails> availableClasses = new List<ClassDetails>();
 			foreach (ClassDetails trackedClass in trackedClasses) {
 				string area = Regex.Replace(trackedClass.CourseCode, @"\d+", "").ToUpper();
-				string[] source = LoadData(area);
-				List<ClassDetails> updatedClasses = ParseClasses(area, trackedClass.CourseCode, source);
+				string[] source = LoadData(area, trackedClass.Semester);
+				List<ClassDetails> updatedClasses = ParseClasses(area, trackedClass.CourseCode, trackedClass.Semester, source);
                 // Find trackedClass from updatedClasses
                 ClassDetails updatedClass = null;
                 foreach (ClassDetails c in updatedClasses) {

@@ -9,7 +9,7 @@ namespace Spotangles {
 		public string Area { get; private set; }
 		public string Course { get; private set; }
 
-		public ClassSearchForm(SettingsForm settingsFormParent, string course) {
+		public ClassSearchForm(SettingsForm settingsFormParent, string course, Semester semester) {
             SettingsFormParent = settingsFormParent;
 			Course = course.ToUpper();
 			Area = Regex.Replace(course, @"\d+", "").ToUpper();
@@ -19,8 +19,8 @@ namespace Spotangles {
 			CenterToScreen();
 			
 			// Get data
-			string[] source = ClassUtilHandler.LoadData(Area);
-			List<ClassDetails> classes = ClassUtilHandler.ParseClasses(Area, Course, source);
+			string[] source = ClassUtilHandler.LoadData(Area, semester);
+			List<ClassDetails> classes = ClassUtilHandler.ParseClasses(Area, Course, semester, source);
 			DisplayClasses(classes);
 		}
 

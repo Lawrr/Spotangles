@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spotangles;
+using System;
 using System.Windows.Forms;
 
 namespace Spotangles {
@@ -26,7 +27,7 @@ namespace Spotangles {
 		}
 
 		private void SearchButton_Click(object sender, EventArgs e) {
-			ClassSearchForm classCheckerForm = new ClassSearchForm(this, CourseInputBox.Text);
+			ClassSearchForm classCheckerForm = new ClassSearchForm(this, CourseInputBox.Text, SemesterExtensions.Parse(SemesterComboBox.SelectedItem.ToString()));
 			classCheckerForm.ShowDialog();
 		}
 
