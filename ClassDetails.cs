@@ -16,9 +16,10 @@ namespace Spotangles {
 
         public List<string> Times { get; private set; } = new List<string>();
 
-        public ClassDetails(string courseCode, string activity, string section, int classNumber,
+        public ClassDetails(string courseCode, Semester semester, string activity, string section, int classNumber,
                             string type, string status, int currentSpots, int totalSpots) {
             CourseCode = courseCode;
+            Semester = semester;
             Activity = activity;
             Section = section;
             ClassNumber = classNumber;
@@ -33,9 +34,9 @@ namespace Spotangles {
         }
 
         public override string ToString() {
-            return string.Format("{0} - {1}, {2}, {3}, {4}, {5}, {6}/{7} [{8}]",
-                                 CourseCode, Activity, Section, ClassNumber, Type, Status, CurrentSpots, TotalSpots,
-                                 string.Join(", ", Times));
+            return string.Format("[{0}] {1} - {2}, {3}, {4}, {5}, {6}, {7}/{8} [{9}]",
+                                 Semester.ToShortString(), CourseCode, Activity, Section, ClassNumber, Type, Status,
+                                 CurrentSpots, TotalSpots, string.Join(", ", Times));
         }
     }
 }
