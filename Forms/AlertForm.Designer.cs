@@ -63,6 +63,7 @@
             this.Controls.Add(this.ClassBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AlertForm";
             this.Text = "Spotangles Alert";
             this.Load += new System.EventHandler(this.AlertForm_Load);

@@ -123,6 +123,7 @@
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CourseInputBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SettingsForm";
             this.Text = "Settings";
             this.ResumeLayout(false);
