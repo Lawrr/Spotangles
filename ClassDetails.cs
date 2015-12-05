@@ -17,7 +17,7 @@ namespace Spotangles {
         public List<string> Times { get; private set; } = new List<string>();
 
         public ClassDetails(string courseCode, string activity, string section, int classNumber,
-                     string type, string status, int currentSpots, int totalSpots) {
+                            string type, string status, int currentSpots, int totalSpots) {
             CourseCode = courseCode;
             Activity = activity;
             Section = section;
