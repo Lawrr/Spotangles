@@ -5,7 +5,8 @@ using System.Windows.Forms;
 namespace Spotangles {
     static class Program {
 
-        public static String ProgramName { get; private set; } = "Spotangles";
+        public static string ProgramName { get; private set; } = "Spotangles";
+        public static string ProgramVersion { get; private set; } = "1.1.0";
 		public static List<ClassDetails> TrackedClasses { get; private set; } = new List<ClassDetails>();
         public static MainForm MainForm { get; private set; }
         public static Tray Tray { get; private set; }
