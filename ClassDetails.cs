@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Spotangles {
-    public class Class {
+    public class ClassDetails {
 
         public string CourseCode { get; private set; }
         public Semester Semester { get; private set; }
@@ -16,7 +16,7 @@ namespace Spotangles {
 
         public List<string> Times { get; private set; } = new List<string>();
 
-        public Class(string courseCode, string activity, string section, int classNumber,
+        public ClassDetails(string courseCode, string activity, string section, int classNumber,
                      string type, string status, int currentSpots, int totalSpots) {
             CourseCode = courseCode;
             Activity = activity;

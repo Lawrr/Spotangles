@@ -19,11 +19,11 @@ namespace Spotangles {
         private static string DataPattern = @"^<td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+?)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\S+)\s*</td><td.*?>\s*(\d+)\s*/\s*(\d+).*";
 		private static string TimePattern = @".*?(\w+\s+\d+\-?(?:\d+)?).*";
 
-		public static List<Class> ParseClasses(string area, string course, string[] source) {
-			List<Class> classes = new List<Class>();
+		public static List<ClassDetails> ParseClasses(string area, string course, string[] source) {
+			List<ClassDetails> classes = new List<ClassDetails>();
 
 			bool foundCourse = false;
-			Class currClass = null;
+			ClassDetails currClass = null;
 			foreach (string line in source) {
 				int courseIndex = line.IndexOf(@"<a name=""" + course, StringComparison.OrdinalIgnoreCase);
 				int anyCourseIndex = line.IndexOf(@"<a name=""" + area, StringComparison.OrdinalIgnoreCase);
@@ -38,14 +38,14 @@ namespace Spotangles {
                         Match lineMatch = lineRegex.Match(line);
                         if (lineMatch.Success) {
                             try {
-                                currClass = new Class(course,
-                                                      lineMatch.Groups[1].Value,
-                                                      lineMatch.Groups[2].Value,
-                                                      int.Parse(lineMatch.Groups[3].Value),
-                                                      lineMatch.Groups[4].Value,
-                                                      lineMatch.Groups[5].Value,
-                                                      int.Parse(lineMatch.Groups[6].Value),
-                                                      int.Parse(lineMatch.Groups[7].Value));
+                                currClass = new ClassDetails(course,
+                                                             lineMatch.Groups[1].Value,
+                                                             lineMatch.Groups[2].Value,
+                                                             int.Parse(lineMatch.Groups[3].Value),
+                                                             lineMatch.Groups[4].Value,
+                                                             lineMatch.Groups[5].Value,
+                                                             int.Parse(lineMatch.Groups[6].Value),
+                                                             int.Parse(lineMatch.Groups[7].Value));
                             } catch (FormatException e) {
                                 continue;
                             }
@@ -113,15 +113,15 @@ namespace Spotangles {
 			return new string[0];
 		}
 
-		public static List<Class> GetAvailableClasses(List<Class> trackedClasses) {
-			List<Class> availableClasses = new List<Class>();
-			foreach (Class trackedClass in trackedClasses) {
+		public static List<ClassDetails> GetAvailableClasses(List<ClassDetails> trackedClasses) {
+			List<ClassDetails> availableClasses = new List<ClassDetails>();
+			foreach (ClassDetails trackedClass in trackedClasses) {
 				string area = Regex.Replace(trackedClass.CourseCode, @"\d+", "").ToUpper();
 				string[] source = LoadData(area);
-				List<Class> updatedClasses = ParseClasses(area, trackedClass.CourseCode, source);
+				List<ClassDetails> updatedClasses = ParseClasses(area, trackedClass.CourseCode, source);
                 // Find trackedClass from updatedClasses
-                Class updatedClass = null;
-                foreach (Class c in updatedClasses) {
+                ClassDetails updatedClass = null;
+                foreach (ClassDetails c in updatedClasses) {
                     if (c.ClassNumber == trackedClass.ClassNumber) {
                         updatedClass = c;
                         break;
