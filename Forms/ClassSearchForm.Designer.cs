@@ -79,6 +79,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.classTXT);
             this.Controls.Add(this.ClassBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ClassSearchForm";
             this.Text = "Class Search";
             this.ResumeLayout(false);
