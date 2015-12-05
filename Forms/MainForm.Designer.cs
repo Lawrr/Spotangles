@@ -89,7 +89,7 @@
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.SettingsButton);
             this.Name = "MainForm";
-            this.Text = "Spotangles";
+            this.Text = string.Format("{0} {1}", Program.ProgramName, Program.ProgramVersion);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
