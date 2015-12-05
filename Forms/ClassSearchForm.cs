@@ -20,11 +20,11 @@ namespace Spotangles {
 			
 			// Get data
 			string[] source = ClassUtilHandler.LoadData(Area);
-			List<Class> classes = ClassUtilHandler.ParseClasses(Area, Course, source);
+			List<ClassDetails> classes = ClassUtilHandler.ParseClasses(Area, Course, source);
 			DisplayClasses(classes);
 		}
 
-		private void DisplayClasses(List<Class> classes) {
+		private void DisplayClasses(List<ClassDetails> classes) {
 			// Remove 'Loading classes...' item
 			ClassBox.Items.RemoveAt(0);
 
@@ -32,14 +32,14 @@ namespace Spotangles {
 			ClassBox.SelectionMode = SelectionMode.One;
 
             // Add classes
-			foreach (Class c in classes) {
+			foreach (ClassDetails c in classes) {
 				ClassBox.Items.Add(c);
 			}
 		}
 
 		private void AddButton_Click(object sender, System.EventArgs e) {
 			if (ClassBox.SelectedItems.Count == 1) {
-                Class selectedClass = (Class)ClassBox.SelectedItem;
+                ClassDetails selectedClass = (ClassDetails)ClassBox.SelectedItem;
                 SettingsFormParent.AddClass(selectedClass);
 				Program.TrackedClasses.Add(selectedClass);
 				Close();

@@ -36,7 +36,7 @@ namespace Spotangles {
 		}
 
 		private void CheckClasses() {
-			List<Class> availableClasses = ClassUtilHandler.GetAvailableClasses(Program.TrackedClasses);
+			List<ClassDetails> availableClasses = ClassUtilHandler.GetAvailableClasses(Program.TrackedClasses);
 			UpdatedTime = ClassUtilHandler.GetUpdatedTime();
 			UpdateLabel.Text = "Data is correct as at: " + UpdatedTime;
 			NumChecked++;

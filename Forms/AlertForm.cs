@@ -5,12 +5,12 @@ using System.Windows.Forms;
 namespace Spotangles {
     public partial class AlertForm : Form {
 
-		public AlertForm(List<Class> availableClasses) {
+		public AlertForm(List<ClassDetails> availableClasses) {
 			InitializeComponent();
 
 			CenterToScreen();
 
-			foreach (Class availableClass in availableClasses) {
+			foreach (ClassDetails availableClass in availableClasses) {
 				ClassBox.Items.Add(availableClass);
 			}
 		}
