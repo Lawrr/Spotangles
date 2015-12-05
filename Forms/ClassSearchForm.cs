@@ -1,15 +1,16 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Spotangles {
 	public partial class ClassSearchForm : Form {
 
-		private SettingsForm Parent;
-		private string Area;
-		private string Course;
+        public SettingsForm SettingsFormParent { get; private set; }
+		public string Area { get; private set; }
+		public string Course { get; private set; }
 
-		public ClassSearchForm(SettingsForm parent, string course) {
-			Parent = parent;
+		public ClassSearchForm(SettingsForm settingsFormParent, string course) {
+            SettingsFormParent = settingsFormParent;
 			Course = course.ToUpper();
 			Area = Regex.Replace(course, @"\d+", "").ToUpper();
 
@@ -19,25 +20,28 @@ namespace Spotangles {
 			
 			// Get data
 			string[] source = ClassUtilHandler.LoadData(Area);
-			string[] classes = ClassUtilHandler.ParseClasses(Area, Course, source);
+			List<Class> classes = ClassUtilHandler.ParseClasses(Area, Course, source);
 			DisplayClasses(classes);
 		}
 
-		private void DisplayClasses(string[] classes) {
+		private void DisplayClasses(List<Class> classes) {
 			// Remove 'Loading classes...' item
 			ClassBox.Items.RemoveAt(0);
+
 			// Enable selection
 			ClassBox.SelectionMode = SelectionMode.One;
-			// Add classes
-			foreach (string line in classes) {
-				ClassBox.Items.Add(line);
+
+            // Add classes
+			foreach (Class c in classes) {
+				ClassBox.Items.Add(c);
 			}
 		}
 
 		private void AddButton_Click(object sender, System.EventArgs e) {
 			if (ClassBox.SelectedItems.Count == 1) {
-				Parent.AddClass(Course + " - " + ClassBox.SelectedItem.ToString());
-				Program.TrackedClasses.Add(Course + " - " + ClassBox.SelectedItem.ToString());
+                Class selectedClass = (Class)ClassBox.SelectedItem;
+                SettingsFormParent.AddClass(selectedClass);
+				Program.TrackedClasses.Add(selectedClass);
 				Close();
 			}
 		}

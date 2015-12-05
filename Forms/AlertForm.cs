@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Spotangles {
     public partial class AlertForm : Form {
 
-		public AlertForm(string[] availableClasses) {
+		public AlertForm(List<Class> availableClasses) {
 			InitializeComponent();
 
 			CenterToScreen();
 
-			foreach (string availableClass in availableClasses) {
+			foreach (Class availableClass in availableClasses) {
 				ClassBox.Items.Add(availableClass);
 			}
 		}

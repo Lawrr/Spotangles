@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Timers;
 using System.Windows.Forms;
 
@@ -35,12 +36,12 @@ namespace Spotangles {
 		}
 
 		private void CheckClasses() {
-			string[] availableClasses = ClassUtilHandler.GetAvailableClasses(Program.TrackedClasses);
+			List<Class> availableClasses = ClassUtilHandler.GetAvailableClasses(Program.TrackedClasses);
 			UpdatedTime = ClassUtilHandler.GetUpdatedTime();
 			UpdateLabel.Text = "Data is correct as at: " + UpdatedTime;
 			NumChecked++;
 			StatusLabel.Text = "Status: Started [Checked " + NumChecked + " times]";
-			if (availableClasses.Length > 0) {
+			if (availableClasses.Count > 0) {
 				AlertForm = new AlertForm(availableClasses);
 				AlertForm.ShowDialog();
 				AlertForm = null;
