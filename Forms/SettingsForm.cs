@@ -13,7 +13,7 @@ namespace Spotangles {
             SemesterComboBox.SelectedIndex = 0;
 
             // Add tracked classes
-			foreach (string trackedClass in Program.TrackedClasses) {
+			foreach (Class trackedClass in Program.TrackedClasses) {
 				TrackBox.Items.Add(trackedClass);
 			}
 
@@ -30,8 +30,8 @@ namespace Spotangles {
 			classCheckerForm.ShowDialog();
 		}
 
-		public void AddClass(string classString) {
-			TrackBox.Items.Add(classString);
+		public void AddClass(Class newClass) {
+			TrackBox.Items.Add(newClass);
 		}
 
 		private void TrackBox_SelectedIndexChanged(object sender, System.EventArgs e) {

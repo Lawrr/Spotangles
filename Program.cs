@@ -6,7 +6,7 @@ namespace Spotangles {
     static class Program {
 
         public static String ProgramName { get; private set; } = "Spotangles";
-		public static List<string> TrackedClasses { get; private set; } = new List<string>();
+		public static List<Class> TrackedClasses { get; private set; } = new List<Class>();
         public static MainForm MainForm { get; private set; }
         public static Tray Tray { get; private set; }
 
